@@ -3,257 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AliTech Fashion | Loja Conceito</title>
+    <title>AliTech Fashion | Premium Store</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
             --primary: #000000;
             --accent: #D4AF37;
-            --light-gray: #F4F4F4;
-            --text-gray: #555555;
-            --white: #FFFFFF;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --bg: #FFFFFF;
+            --light-gray: #f8f8f8;
+            --transition: all 0.4s ease;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
-        
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background: var(--white); 
-            color: var(--primary);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--primary); scroll-behavior: smooth; }
 
         .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
 
-        /* Barra de Aviso */
-        .top-bar {
-            background: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 10px 0;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        /* Header */
+        /* HEADER */
         header {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.98);
             border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 15px 0;
+            padding: 20px 0;
         }
-        
         nav { display: flex; justify-content: space-between; align-items: center; }
-        
-        .logo { 
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem; 
-            text-decoration: none; 
-            color: var(--primary);
-            font-weight: 700;
-        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; text-decoration: none; color: #000; font-weight: 900; }
         .logo span { color: var(--accent); }
-
         .menu { display: flex; list-style: none; gap: 30px; }
-        .menu a { text-decoration: none; color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .menu a:hover { color: var(--accent); }
-
-        .nav-icons { display: flex; gap: 20px; align-items: center; }
-        .cart-btn { position: relative; cursor: pointer; font-size: 1.2rem; }
+        .menu a { text-decoration: none; color: #000; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+        
+        .cart-icon { position: relative; cursor: pointer; font-size: 1.2rem; }
         #cart-count { 
-            position: absolute; top: -10px; right: -12px; 
-            background: var(--accent); color: black; 
-            font-size: 0.65rem; width: 18px; height: 18px; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;
+            position: absolute; top: -10px; right: -12px; background: var(--accent); 
+            width: 18px; height: 18px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800;
         }
 
-        /* Hero */
+        /* HERO */
         .hero {
-            height: 80vh;
-            background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop') center/cover;
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            position: relative;
+            color: white;
+            text-align: left;
         }
-        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.2); }
-        .hero-content { position: relative; z-index: 2; padding-left: 5%; color: var(--white); }
-        .hero-content h1 { font-size: 4rem; font-family: 'Playfair Display', serif; margin-bottom: 20px; line-height: 1.1; }
-        .btn-main { 
-            background: var(--white); color: black; padding: 18px 40px; 
-            text-decoration: none; font-weight: 800; font-size: 0.8rem; 
-            text-transform: uppercase; letter-spacing: 2px; display: inline-block;
-            transition: var(--transition);
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 20px; }
+
+        /* PRODUTOS */
+        .section { padding: 80px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        
+        .card { position: relative; overflow: hidden; background: var(--light-gray); }
+        .img-container { height: 400px; overflow: hidden; position: relative; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .card:hover img { transform: scale(1.1); }
+        
+        .add-btn {
+            position: absolute; bottom: -50px; width: 100%; background: #000; color: #fff;
+            padding: 15px; text-align: center; font-weight: 700; cursor: pointer; transition: var(--transition);
         }
-        .btn-main:hover { background: var(--accent); color: white; transform: translateY(-5px); }
+        .card:hover .add-btn { bottom: 0; }
+        
+        .info { padding: 20px; text-align: center; }
+        .info h3 { font-size: 0.9rem; margin-bottom: 10px; }
+        .info p { font-weight: 800; color: var(--accent); }
 
-        /* Grid de Produtos */
-        .section { padding: 100px 0; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
-        
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        
-        .product-card { position: relative; overflow: hidden; transition: var(--transition); }
-        .product-img { width: 100%; height: 400px; object-fit: cover; background: var(--light-gray); transition: 0.6s ease; }
-        .product-card:hover .product-img { transform: scale(1.05); }
-        
-        .add-to-cart { 
-            position: absolute; bottom: -60px; width: 100%; background: var(--primary); 
-            color: white; text-align: center; padding: 20px; cursor: pointer;
-            font-weight: 700; transition: 0.4s;
-        }
-        .product-card:hover .add-to-cart { bottom: 0; }
-        
-        .product-info { padding: 20px 0; text-align: center; }
-        .product-info h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
-        .product-info p { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
+        /* ONDE ESTAMOS */
+        .map-section { display: flex; flex-wrap: wrap; background: #000; color: #fff; }
+        .map-text { flex: 1; padding: 80px 5%; min-width: 300px; }
+        .map-text h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
+        .map-frame { flex: 1; min-width: 300px; height: 450px; border: none; filter: grayscale(1) invert(1); }
 
-        /* Onde Estamos */
-        .where-we-are { background: var(--light-gray); display: flex; flex-wrap: wrap; }
-        .map-info { flex: 1; min-width: 300px; padding: 80px 5%; display: flex; flex-direction: column; justify-content: center; }
-        .map-info h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; }
-        .map-info p { margin-bottom: 15px; font-size: 1rem; color: var(--text-gray); }
-        .map-info i { color: var(--accent); margin-right: 10px; }
-        
-        .map-frame { flex: 1; min-width: 300px; height: 500px; filter: grayscale(1); }
-
-        /* AliTech CTA */
-        .alitech-cta { background: var(--accent); color: black; text-align: center; padding: 80px 0; }
-        .alitech-cta h2 { font-size: 2rem; margin-bottom: 20px; font-weight: 800; }
-        .btn-dark { background: black; color: white; padding: 15px 30px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 10px; }
-
-        /* Carrinho Lateral */
-        .cart-sidebar { 
-            position: fixed; right: -400px; top: 0; width: 380px; height: 100%; 
-            background: var(--white); z-index: 2000; transition: 0.5s; 
-            padding: 40px; box-shadow: -10px 0 50px rgba(0,0,0,0.1); display: flex; flex-direction: column;
+        /* CARRINHO */
+        .cart-sidebar {
+            position: fixed; right: -100%; top: 0; width: 350px; height: 100%;
+            background: #fff; z-index: 2000; transition: 0.5s; padding: 30px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;
         }
         .cart-sidebar.active { right: 0; }
-        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 20px; }
-        .cart-items { flex: 1; overflow-y: auto; }
-        .cart-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; }
-        .cart-item img { width: 70px; height: 90px; object-fit: cover; }
-        .cart-footer { border-top: 2px solid #eee; padding-top: 20px; }
-        .total-row { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; }
+        .cart-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .cart-item img { width: 50px; height: 60px; object-fit: cover; }
+        .checkout-btn { background: #25D366; color: white; padding: 15px; border: none; width: 100%; font-weight: 700; cursor: pointer; margin-top: 20px; }
+
+        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #888; border-top: 1px solid #eee; }
 
         @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
             .menu { display: none; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .cart-sidebar { width: 100%; right: -100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">Coleção de Inverno: Frete Grátis em todo o Brasil</div>
-
-    <header id="header">
+    <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">AliTech<span>Fashion</span></a>
                 <ul class="menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#produtos">Coleção</a></li>
                     <li><a href="#local">Onde Estamos</a></li>
                 </ul>
-                <div class="nav-icons">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <div class="cart-btn" onclick="toggleCart()">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <span id="cart-count">0</span>
-                    </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cart-count">0</span>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p style="letter-spacing: 5px; font-weight: 700; margin-bottom: 10px;">ESTILO & PODER</p>
-            <h1>O essencial para<br>o seu guarda-roupa.</h1>
-            <a href="#produtos" class="btn-main">Comprar Agora</a>
+    <section class="hero">
+        <div class="container">
+            <h1>Sua melhor versão<br>começa aqui.</h1>
+            <a href="#produtos" style="background: var(--accent); color: #000; padding: 15px 35px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.8rem;">Ver Coleção</a>
         </div>
     </section>
 
     <section id="produtos" class="section container">
-        <div class="section-title">
-            <h2>Destaques</h2>
-            <p>Os itens mais desejados da temporada</p>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">New Arrivals</h2>
         </div>
-        <div class="product-grid" id="grid">
-            </div>
+        <div class="grid" id="product-grid"></div>
     </section>
 
-    <section id="local" class="where-we-are">
-        <div class="map-info">
-            <h2>Onde Estamos</h2>
-            <p><i class="fa-solid fa-location-dot"></i> Av. das Américas, 4200 - AliTech Tower</p>
+    <section id="local" class="map-section">
+        <div class="map-text">
+            <h2>Nossa Loja</h2>
+            <p><i class="fa-solid fa-location-dot"></i> Av. Fashion AliTech, 998 - Edifício Ouro</p>
             <p><i class="fa-solid fa-phone"></i> (42) 99863-3284</p>
-            <p><i class="fa-solid fa-clock"></i> Seg - Sáb: 10:00 às 22:00</p>
-            <p><i class="fa-solid fa-envelope"></i> fashion@alitech.com.br</p>
-            <a href="https://wa.me/42998633284" class="btn-main" style="background: black; color: white; margin-top: 20px; text-align: center;">Chamar no WhatsApp</a>
+            <p style="margin-top: 20px; color: var(--accent);">Aberto de Segunda a Sábado: 09:00 - 20:00</p>
         </div>
-        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.658!3d-23.561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzM5LjYiUyA0NiwzOScyOC44Ilc!5e0!3m2!1spt-BR!2sbr!4v1620000000000" allowfullscreen="" loading="lazy"></iframe>
-    </section>
-
-    <section class="alitech-cta">
-        <div class="container">
-            <h2>Eleve o nível da sua Loja.</h2>
-            <p>E-commerces de alta performance desenvolvidos pela AliTech.</p>
-            <a href="https://wa.me/42998633284" target="_blank" class="btn-dark">Solicitar Orçamento</a>
-        </div>
+        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.658!3d-23.561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzM5LjYiUyA0NsKwMzknMjguOCJX!5e0!3m2!1spt-BR!2sbr!4v1625000000000"></iframe>
     </section>
 
     <div class="cart-sidebar" id="cart">
-        <div class="cart-header">
-            <h3>Sua Sacola</h3>
-            <span style="cursor:pointer; font-size: 2rem;" onclick="toggleCart()">&times;</span>
+        <h2 style="margin-bottom: 30px; font-family: 'Playfair Display', serif;">Sua Sacola</h2>
+        <div id="cart-items" style="flex: 1; overflow-y: auto;"></div>
+        <div id="cart-total" style="font-weight: 800; font-size: 1.2rem; margin-top: 20px; display: flex; justify-content: space-between;">
+            <span>Total:</span> <span id="total-price">R$ 0,00</span>
         </div>
-        <div class="cart-items" id="cart-list">
-            </div>
-        <div class="cart-footer">
-            <div class="total-row">
-                <span>Total:</span>
-                <span id="total-val">R$ 0,00</span>
-            </div>
-            <button class="btn-main" style="width: 100%; border: none; cursor: pointer; background: #25D366; color: white;" onclick="sendWhatsApp()">Finalizar no WhatsApp</button>
-        </div>
+        <button class="checkout-btn" onclick="sendWhatsApp()">Finalizar no WhatsApp</button>
+        <p style="text-align: center; margin-top: 15px; cursor: pointer; font-size: 0.8rem;" onclick="toggleCart()">Fechar</p>
     </div>
 
+    <footer>
+        DESIGNED BY ALITECH — (42) 99863-3284
+    </footer>
+
     <script>
+        // Imagens garantidas do Unsplash focadas em moda
         const products = [
-            { id: 1, name: "Blazer Slim Grey Premium", price: 459.90, img: "https://images.unsplash.com/photo-1594932224011-045047b967f1?q=80&w=800&auto=format&fit=crop" },
-            { id: 2, name: "Trench Coat Sand Edition", price: 589.00, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop" },
-            { id: 3, name: "Vestido Midi Silk Black", price: 299.00, img: "https://images.unsplash.com/photo-1539109132314-34755249ff95?q=80&w=800&auto=format&fit=crop" },
-            { id: 4, name: "Suéter Cashmere White", price: 249.00, img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop" },
-            { id: 5, name: "Bota Couro Italiana", price: 620.00, img: "https://images.unsplash.com/photo-1520639889410-d65c36fcc2e4?q=80&w=800&auto=format&fit=crop" },
-            { id: 6, name: "Relógio Gold Minimal", price: 890.00, img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=800&auto=format&fit=crop" }
+            { id: 1, name: "Sobretudo Italiano Camel", price: 499.90, img: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=800&q=80" },
+            { id: 2, name: "Vestido Gala Noir", price: 389.00, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80" },
+            { id: 3, name: "Blazer Executivo Slim", price: 320.00, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80" },
+            { id: 4, name: "Tênis Urban White", price: 259.00, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" },
+            { id: 5, name: "Bolsa Couro Legítimo", price: 189.00, img: "https://images.unsplash.com/photo-1584917033904-493bb3c3cc0a?auto=format&fit=crop&w=800&q=80" },
+            { id: 6, name: "Óculos Avante Gold", price: 150.00, img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80" }
         ];
 
         let cart = [];
 
-        function init() {
-            const grid = document.getElementById('grid');
+        function render() {
+            const grid = document.getElementById('product-grid');
             grid.innerHTML = products.map(p => `
-                <div class="product-card">
-                    <img src="${p.img}" class="product-img">
-                    <div class="add-to-cart" onclick="addToCart(${p.id})">ADICIONAR À SACOLA</div>
-                    <div class="product-info">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="${p.img}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/400x500?text=Produto+Indisponível'">
+                        <div class="add-btn" onclick="addToCart(${p.id})">ADICIONAR À SACOLA</div>
+                    </div>
+                    <div class="info">
                         <h3>${p.name}</h3>
                         <p>R$ ${p.price.toFixed(2)}</p>
                     </div>
@@ -266,48 +192,48 @@
         }
 
         function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            cart.push(product);
-            renderCart();
+            const p = products.find(x => x.id === id);
+            cart.push(p);
+            updateCart();
             if(!document.getElementById('cart').classList.contains('active')) toggleCart();
         }
 
-        function renderCart() {
-            const list = document.getElementById('cart-list');
+        function updateCart() {
+            const list = document.getElementById('cart-items');
+            const total = document.getElementById('total-price');
             const count = document.getElementById('cart-count');
-            const total = document.getElementById('total-val');
             
             count.innerText = cart.length;
-            list.innerHTML = cart.map((item, idx) => `
+            list.innerHTML = cart.map((item, i) => `
                 <div class="cart-item">
                     <img src="${item.img}">
                     <div style="flex:1">
-                        <h4 style="font-size:0.75rem">${item.name}</h4>
+                        <h4 style="font-size:0.8rem">${item.name}</h4>
                         <p style="font-weight:700">R$ ${item.price.toFixed(2)}</p>
                     </div>
-                    <i class="fa-solid fa-trash" style="cursor:pointer; color:#ccc" onclick="remove(${idx})"></i>
+                    <span style="cursor:pointer; color:red" onclick="remove(${i})">×</span>
                 </div>
             `).join('');
             
-            const totalSum = cart.reduce((acc, curr) => acc + curr.price, 0);
-            total.innerText = `R$ ${totalSum.toFixed(2)}`;
+            const sum = cart.reduce((a, b) => a + b.price, 0);
+            total.innerText = `R$ ${sum.toFixed(2)}`;
         }
 
-        function remove(idx) {
-            cart.splice(idx, 1);
-            renderCart();
+        function remove(i) {
+            cart.splice(i, 1);
+            updateCart();
         }
 
         function sendWhatsApp() {
-            if(cart.length === 0) return;
-            let text = "*AliTech Fashion - Novo Pedido*%0A%0A";
-            cart.forEach(i => text += `• ${i.name} (R$ ${i.price.toFixed(2)})%0A`);
-            const total = cart.reduce((acc, curr) => acc + curr.price, 0);
-            text += `%0A*TOTAL: R$ ${total.toFixed(2)}*`;
-            window.open(`https://wa.me/42998633284?text=${text}`);
+            if(cart.length === 0) return alert("Sacola vazia!");
+            let msg = "*Novo Pedido AliTech*%0A%0A";
+            cart.forEach(p => msg += `• ${p.name} - R$ ${p.price.toFixed(2)}%0A`);
+            const total = cart.reduce((a, b) => a + b.price, 0);
+            msg += `%0A*Total: R$ ${total.toFixed(2)}*`;
+            window.open(`https://wa.me/5542998633284?text=${msg}`);
         }
 
-        init();
+        window.onload = render;
     </script>
 </body>
 </html>
