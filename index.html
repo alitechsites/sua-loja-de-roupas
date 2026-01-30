@@ -3,324 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AliTech Fashion | Estilo e Performance</title>
+    <title>AliTech Fashion | Loja Conceito</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
             --primary: #000000;
-            --secondary: #FFFFFF;
-            --accent: #D4AF37; /* Toque dourado AliTech */
-            --bg-light: #F8F8F8;
-            --text-muted: #666666;
-            --font-main: 'Montserrat', sans-serif;
-            --transition: all 0.3s ease;
+            --accent: #D4AF37;
+            --light-gray: #F4F4F4;
+            --text-gray: #555555;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
         
         body { 
-            background-color: var(--secondary); 
-            color: var(--primary); 
-            font-family: var(--font-main);
+            font-family: 'Montserrat', sans-serif; 
+            background: var(--white); 
+            color: var(--primary);
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- BARRA DE AVISO (TOP BAR) --- */
+        /* Barra de Aviso */
         .top-bar {
             background: var(--primary);
-            color: var(--secondary);
+            color: var(--white);
             text-align: center;
-            padding: 8px 0;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* --- HEADER --- */
-        header {
-            background: var(--secondary);
-            border-bottom: 1px solid #EEE;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-main {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo { 
-            font-size: 1.8rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: -1px;
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .logo span { color: var(--accent); }
-
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { 
-            text-decoration: none; 
-            color: var(--primary); 
-            font-size: 0.85rem; 
-            font-weight: 600; 
+            padding: 10px 0;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            font-weight: 700;
             text-transform: uppercase;
         }
 
-        .header-icons { display: flex; gap: 20px; font-size: 1.2rem; cursor: pointer; }
-        .cart-icon { position: relative; }
-        #cart-count {
-            position: absolute; top: -10px; right: -12px;
-            background: var(--accent); color: #000;
-            font-size: 0.65rem; width: 18px; height: 18px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        /* Header */
+        header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { 
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; 
+            text-decoration: none; 
+            color: var(--primary);
             font-weight: 700;
         }
+        .logo span { color: var(--accent); }
 
-        /* --- HERO BANNER --- */
+        .menu { display: flex; list-style: none; gap: 30px; }
+        .menu a { text-decoration: none; color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .menu a:hover { color: var(--accent); }
+
+        .nav-icons { display: flex; gap: 20px; align-items: center; }
+        .cart-btn { position: relative; cursor: pointer; font-size: 1.2rem; }
+        #cart-count { 
+            position: absolute; top: -10px; right: -12px; 
+            background: var(--accent); color: black; 
+            font-size: 0.65rem; width: 18px; height: 18px; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;
+        }
+
+        /* Hero */
         .hero {
-            background: #E5E5E5;
-            height: 500px;
+            height: 80vh;
+            background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop') center/cover;
             display: flex;
             align-items: center;
-            background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=1600&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 60px;
+            justify-content: flex-start;
+            position: relative;
         }
-        .hero-text { background: rgba(255,255,255,0.9); padding: 40px; max-width: 500px; }
-        .hero-text h1 { font-size: 2.5rem; margin-bottom: 15px; text-transform: uppercase; }
-        .btn-shop { 
-            background: var(--primary); color: var(--secondary); 
-            padding: 15px 30px; text-decoration: none; 
-            display: inline-block; font-weight: 700; text-transform: uppercase;
-            font-size: 0.8rem;
+        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.2); }
+        .hero-content { position: relative; z-index: 2; padding-left: 5%; color: var(--white); }
+        .hero-content h1 { font-size: 4rem; font-family: 'Playfair Display', serif; margin-bottom: 20px; line-height: 1.1; }
+        .btn-main { 
+            background: var(--white); color: black; padding: 18px 40px; 
+            text-decoration: none; font-weight: 800; font-size: 0.8rem; 
+            text-transform: uppercase; letter-spacing: 2px; display: inline-block;
+            transition: var(--transition);
         }
+        .btn-main:hover { background: var(--accent); color: white; transform: translateY(-5px); }
 
-        /* --- CATEGORIAS --- */
-        .section-title { text-align: center; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* --- PRODUTOS --- */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .product-card { transition: var(--transition); cursor: pointer; }
-        .product-img-box { position: relative; overflow: hidden; background: var(--bg-light); margin-bottom: 15px; }
-        .product-img { width: 100%; transition: transform 0.5s ease; }
+        /* Grid de Produtos */
+        .section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        
+        .product-card { position: relative; overflow: hidden; transition: var(--transition); }
+        .product-img { width: 100%; height: 400px; object-fit: cover; background: var(--light-gray); transition: 0.6s ease; }
         .product-card:hover .product-img { transform: scale(1.05); }
         
-        .add-to-cart-overlay {
-            position: absolute; bottom: -50px; width: 100%;
-            background: var(--primary); color: white; text-align: center;
-            padding: 15px 0; transition: 0.3s ease; font-weight: 700; font-size: 0.8rem;
+        .add-to-cart { 
+            position: absolute; bottom: -60px; width: 100%; background: var(--primary); 
+            color: white; text-align: center; padding: 20px; cursor: pointer;
+            font-weight: 700; transition: 0.4s;
         }
-        .product-card:hover .add-to-cart-overlay { bottom: 0; }
+        .product-card:hover .add-to-cart { bottom: 0; }
+        
+        .product-info { padding: 20px 0; text-align: center; }
+        .product-info h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
+        .product-info p { font-weight: 800; color: var(--accent); font-size: 1.1rem; }
 
-        .product-info h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; color: var(--text-muted); }
-        .price-box { display: flex; gap: 10px; align-items: center; }
-        .current-price { font-weight: 800; font-size: 1.1rem; }
-        .old-price { color: #AAA; text-decoration: line-through; font-size: 0.85rem; }
+        /* Onde Estamos */
+        .where-we-are { background: var(--light-gray); display: flex; flex-wrap: wrap; }
+        .map-info { flex: 1; min-width: 300px; padding: 80px 5%; display: flex; flex-direction: column; justify-content: center; }
+        .map-info h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; }
+        .map-info p { margin-bottom: 15px; font-size: 1rem; color: var(--text-gray); }
+        .map-info i { color: var(--accent); margin-right: 10px; }
+        
+        .map-frame { flex: 1; min-width: 300px; height: 500px; filter: grayscale(1); }
 
-        /* --- ALITECH BRANDING --- */
-        .alitech-cta { background: var(--bg-light); padding: 80px 0; text-align: center; border-top: 1px solid #EEE; }
-        .alitech-cta h2 { font-weight: 800; margin-bottom: 15px; }
-        .alitech-cta p { margin-bottom: 30px; color: var(--text-muted); }
+        /* AliTech CTA */
+        .alitech-cta { background: var(--accent); color: black; text-align: center; padding: 80px 0; }
+        .alitech-cta h2 { font-size: 2rem; margin-bottom: 20px; font-weight: 800; }
+        .btn-dark { background: black; color: white; padding: 15px 30px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 10px; }
 
-        /* --- CARRINHO SIDEBAR --- */
-        .cart-sidebar {
-            position: fixed; right: -100%; top: 0; width: 400px; height: 100%;
-            background: white; z-index: 2000; transition: 0.4s ease;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.1); padding: 40px;
-            display: flex; flex-direction: column;
+        /* Carrinho Lateral */
+        .cart-sidebar { 
+            position: fixed; right: -400px; top: 0; width: 380px; height: 100%; 
+            background: var(--white); z-index: 2000; transition: 0.5s; 
+            padding: 40px; box-shadow: -10px 0 50px rgba(0,0,0,0.1); display: flex; flex-direction: column;
         }
         .cart-sidebar.active { right: 0; }
-        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #EEE; padding-bottom: 20px; margin-bottom: 20px; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 20px; }
         .cart-items { flex: 1; overflow-y: auto; }
         .cart-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; }
-        .cart-item img { width: 60px; height: 80px; object-fit: cover; }
-        .cart-total { border-top: 1px solid #EEE; padding-top: 20px; margin-top: 20px; font-weight: 800; font-size: 1.2rem; display: flex; justify-content: space-between; }
-
-        footer { background: var(--primary); color: white; padding: 60px 0; text-align: center; }
-        .footer-logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; display: block; color: white; text-decoration: none; }
-        .credits { font-size: 0.7rem; color: #666; letter-spacing: 2px; margin-top: 30px; }
+        .cart-item img { width: 70px; height: 90px; object-fit: cover; }
+        .cart-footer { border-top: 2px solid #eee; padding-top: 20px; }
+        .total-row { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; }
 
         @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .cart-sidebar { width: 100%; }
+            .menu { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .cart-sidebar { width: 100%; right: -100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">FRETE GRÁTIS EM COMPRAS ACIMA DE R$ 299,00</div>
+    <div class="top-bar">Coleção de Inverno: Frete Grátis em todo o Brasil</div>
 
-    <header>
-        <div class="container header-main">
-            <a href="#" class="logo">AliTech<span>Store</span></a>
-            <ul class="nav-menu">
-                <li><a href="#">Lançamentos</a></li>
-                <li><a href="#">Masculino</a></li>
-                <li><a href="#">Feminino</a></li>
-                <li><a href="#">Promoções</a></li>
-            </ul>
-            <div class="header-icons">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-regular fa-user"></i>
-                <div class="cart-icon" onclick="toggleCart()">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="cart-count">0</span>
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">AliTech<span>Fashion</span></a>
+                <ul class="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#local">Onde Estamos</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="cart-btn" onclick="toggleCart()">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="cart-count">0</span>
+                    </div>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-text">
-                <span style="font-weight: 700; color: var(--accent);">NEW COLLECTION</span>
-                <h1>Estilo que define sua presença.</h1>
-                <a href="#produtos" class="btn-shop">Comprar Agora</a>
-            </div>
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p style="letter-spacing: 5px; font-weight: 700; margin-bottom: 10px;">ESTILO & PODER</p>
+            <h1>O essencial para<br>o seu guarda-roupa.</h1>
+            <a href="#produtos" class="btn-main">Comprar Agora</a>
         </div>
     </section>
 
-    <section class="container" id="produtos">
-        <h2 class="section-title">Destaques da Semana</h2>
-        <div class="product-grid" id="product-container">
+    <section id="produtos" class="section container">
+        <div class="section-title">
+            <h2>Destaques</h2>
+            <p>Os itens mais desejados da temporada</p>
+        </div>
+        <div class="product-grid" id="grid">
             </div>
+    </section>
+
+    <section id="local" class="where-we-are">
+        <div class="map-info">
+            <h2>Onde Estamos</h2>
+            <p><i class="fa-solid fa-location-dot"></i> Av. das Américas, 4200 - AliTech Tower</p>
+            <p><i class="fa-solid fa-phone"></i> (42) 99863-3284</p>
+            <p><i class="fa-solid fa-clock"></i> Seg - Sáb: 10:00 às 22:00</p>
+            <p><i class="fa-solid fa-envelope"></i> fashion@alitech.com.br</p>
+            <a href="https://wa.me/42998633284" class="btn-main" style="background: black; color: white; margin-top: 20px; text-align: center;">Chamar no WhatsApp</a>
+        </div>
+        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.658!3d-23.561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzM5LjYiUyA0NiwzOScyOC44Ilc!5e0!3m2!1spt-BR!2sbr!4v1620000000000" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <section class="alitech-cta">
         <div class="container">
-            <h2>Quer um e-commerce como este?</h2>
-            <p>A AliTech desenvolve plataformas de venda de alta performance para o mundo da moda.</p>
-            <a href="https://wa.me/42998633284?text=Olá!%20Vi%20o%20site%20de%20moda%20e%20quero%20um%20projeto%20para%20minha%20loja." target="_blank" class="btn-shop" style="background: var(--accent); color: black;">Falar com Especialista</a>
+            <h2>Eleve o nível da sua Loja.</h2>
+            <p>E-commerces de alta performance desenvolvidos pela AliTech.</p>
+            <a href="https://wa.me/42998633284" target="_blank" class="btn-dark">Solicitar Orçamento</a>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <a href="#" class="footer-logo">AliTech<span>Store</span></a>
-            <p>Avenida da Moda, 1000 - Fashion District</p>
-            <p class="credits">DESENVOLVIDO POR ALITECH — © 2026</p>
-        </div>
-    </footer>
-
-    <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-sidebar" id="cart">
         <div class="cart-header">
-            <h3>Sacola (0)</h3>
-            <span style="cursor: pointer; font-size: 1.5rem;" onclick="toggleCart()">&times;</span>
+            <h3>Sua Sacola</h3>
+            <span style="cursor:pointer; font-size: 2rem;" onclick="toggleCart()">&times;</span>
         </div>
-        <div id="cart-items" class="cart-items">
+        <div class="cart-items" id="cart-list">
             </div>
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total-value">R$ 0,00</span>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total:</span>
+                <span id="total-val">R$ 0,00</span>
+            </div>
+            <button class="btn-main" style="width: 100%; border: none; cursor: pointer; background: #25D366; color: white;" onclick="sendWhatsApp()">Finalizar no WhatsApp</button>
         </div>
-        <button class="btn-shop" style="width: 100%; margin-top: 20px; border: none; cursor: pointer;" onclick="checkout()">Finalizar Pedido</button>
     </div>
 
     <script>
         const products = [
-            { id: 1, name: "Camiseta Basic Premium Black", price: 89.90, oldPrice: 119.90, img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop" },
-            { id: 2, name: "Jaqueta Bomber Street", price: 249.00, oldPrice: 299.00, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600&auto=format&fit=crop" },
-            { id: 3, name: "Calça Chino Slim Khaki", price: 159.00, oldPrice: null, img: "https://images.unsplash.com/photo-1473966968600-fa804b869620?q=80&w=600&auto=format&fit=crop" },
-            { id: 4, name: "Moletom Oversized Gray", price: 189.00, oldPrice: 229.00, img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop" },
-            { id: 5, name: "Camisa Linho White", price: 199.00, oldPrice: null, img: "https://images.unsplash.com/photo-1598033129183-c4f50c717658?q=80&w=600&auto=format&fit=crop" },
-            { id: 6, name: "Tênis Urban Walker", price: 349.00, oldPrice: 450.00, img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600&auto=format&fit=crop" }
+            { id: 1, name: "Blazer Slim Grey Premium", price: 459.90, img: "https://images.unsplash.com/photo-1594932224011-045047b967f1?q=80&w=800&auto=format&fit=crop" },
+            { id: 2, name: "Trench Coat Sand Edition", price: 589.00, img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=800&auto=format&fit=crop" },
+            { id: 3, name: "Vestido Midi Silk Black", price: 299.00, img: "https://images.unsplash.com/photo-1539109132314-34755249ff95?q=80&w=800&auto=format&fit=crop" },
+            { id: 4, name: "Suéter Cashmere White", price: 249.00, img: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=800&auto=format&fit=crop" },
+            { id: 5, name: "Bota Couro Italiana", price: 620.00, img: "https://images.unsplash.com/photo-1520639889410-d65c36fcc2e4?q=80&w=800&auto=format&fit=crop" },
+            { id: 6, name: "Relógio Gold Minimal", price: 890.00, img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=800&auto=format&fit=crop" }
         ];
 
         let cart = [];
 
-        function renderProducts() {
-            const container = document.getElementById('product-container');
-            container.innerHTML = products.map(p => `
-                <div class="product-card" onclick="addToCart(${p.id})">
-                    <div class="product-img-box">
-                        <img src="${p.img}" class="product-img" alt="${p.name}">
-                        <div class="add-to-cart-overlay">ADICIONAR À SACOLA</div>
-                    </div>
+        function init() {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <img src="${p.img}" class="product-img">
+                    <div class="add-to-cart" onclick="addToCart(${p.id})">ADICIONAR À SACOLA</div>
                     <div class="product-info">
                         <h3>${p.name}</h3>
-                        <div class="price-box">
-                            <span class="current-price">R$ ${p.price.toFixed(2)}</span>
-                            ${p.oldPrice ? `<span class="old-price">R$ ${p.oldPrice.toFixed(2)}</span>` : ''}
-                        </div>
+                        <p>R$ ${p.price.toFixed(2)}</p>
                     </div>
                 </div>
             `).join('');
         }
 
         function toggleCart() {
-            document.getElementById('cart-sidebar').classList.toggle('active');
+            document.getElementById('cart').classList.toggle('active');
         }
 
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             cart.push(product);
-            updateCartUI();
-            if(!document.getElementById('cart-sidebar').classList.contains('active')) toggleCart();
+            renderCart();
+            if(!document.getElementById('cart').classList.contains('active')) toggleCart();
         }
 
-        function updateCartUI() {
-            const container = document.getElementById('cart-items');
+        function renderCart() {
+            const list = document.getElementById('cart-list');
             const count = document.getElementById('cart-count');
-            const total = document.getElementById('cart-total-value');
+            const total = document.getElementById('total-val');
             
             count.innerText = cart.length;
-            
-            if(cart.length === 0) {
-                container.innerHTML = "<p style='text-align:center; margin-top:50px;'>Sua sacola está vazia.</p>";
-                total.innerText = "R$ 0,00";
-                return;
-            }
-
-            container.innerHTML = cart.map((item, index) => `
+            list.innerHTML = cart.map((item, idx) => `
                 <div class="cart-item">
                     <img src="${item.img}">
                     <div style="flex:1">
-                        <h4 style="font-size:0.8rem;">${item.name}</h4>
-                        <p style="font-weight:700;">R$ ${item.price.toFixed(2)}</p>
+                        <h4 style="font-size:0.75rem">${item.name}</h4>
+                        <p style="font-weight:700">R$ ${item.price.toFixed(2)}</p>
                     </div>
-                    <i class="fa-solid fa-trash" style="cursor:pointer; font-size:0.8rem; color:#CCC" onclick="removeFromCart(${index})"></i>
+                    <i class="fa-solid fa-trash" style="cursor:pointer; color:#ccc" onclick="remove(${idx})"></i>
                 </div>
             `).join('');
-
-            const sum = cart.reduce((acc, curr) => acc + curr.price, 0);
-            total.innerText = `R$ ${sum.toFixed(2)}`;
+            
+            const totalSum = cart.reduce((acc, curr) => acc + curr.price, 0);
+            total.innerText = `R$ ${totalSum.toFixed(2)}`;
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
+        function remove(idx) {
+            cart.splice(idx, 1);
+            renderCart();
         }
 
-        function checkout() {
-            if(cart.length === 0) return alert("Sua sacola está vazia!");
-            let msg = "*Novo Pedido AliTech Store*%0A%0A";
-            cart.forEach(i => msg += `- ${i.name} (R$ ${i.price.toFixed(2)})%0A`);
+        function sendWhatsApp() {
+            if(cart.length === 0) return;
+            let text = "*AliTech Fashion - Novo Pedido*%0A%0A";
+            cart.forEach(i => text += `• ${i.name} (R$ ${i.price.toFixed(2)})%0A`);
             const total = cart.reduce((acc, curr) => acc + curr.price, 0);
-            msg += `%0A*TOTAL: R$ ${total.toFixed(2)}*`;
-            window.open(`https://wa.me/42998633284?text=${msg}`);
+            text += `%0A*TOTAL: R$ ${total.toFixed(2)}*`;
+            window.open(`https://wa.me/42998633284?text=${text}`);
         }
 
-        window.onload = renderProducts;
+        init();
     </script>
 </body>
 </html>
